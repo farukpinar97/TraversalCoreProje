@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>SignalR Bağlantı Testi</h2>
+
+<div class="alert alert-success">
+    Bağlantı Durumu : <b id="connectionStatus">Bağlanıyor...</b>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script>
+        $(function () {
+
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("http://localhost:5253/VisitorHub")
+                .withAutomaticReconnect()
+                .build();
+
+            // 🔥 BAŞARILI BAĞLANTI
+            connection.start()
+                .then(() => {
+                    $("#connectionStatus").text("Connected");
+                })
+                .catch(err => {
+                    console.error(err);
+                    $("#connectionStatus").text("Connection Failed");
+                });
+
+            // 🔄 KOPMA DURUMU
+            connection.onclose(() => {
+                $("#connectionStatus").text("Disconnected");
+            });
+
+            // ♻️ YENİDEN BAĞLANDI
+            connection.onreconnected(() => {
+                $("#connectionStatus").text("Connected");
+            });
+        });
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+
+@if (Model != null && Model.Any())
+{
+    <div class="card" style="height:675px;">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">Tur Rotaları</h4>
+                <h6 class="card-subtitle text-muted">Öne çıkan destinasyonlar</h6>
+            </div>
+
+            <div id="destinationCarousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <li data-target="#destinationCarousel"
+                            data-slide-to="@i"
+                            class="@(i == 0 ? "active" : "")">
+                        </li>
+                    }
+                </ol>
+
+                <!-- Slides -->
+                <div class="carousel-inner" role="listbox">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var item = Model[i];
+                        <div class="carousel-item @(i == 0 ? "active" : "")">
+                            <img src="@item.CoverImage"
+                                 class="d-block w-100"
+                                 style="height:350px;object-fit:cover;"
+                                 alt="@item.City">
+
+                            <div class="carousel-caption-custom bg-blue-grey bg-opacity-75 p-3 rounded">
+                                <h5 style="color:white;">@item.City</h5>
+                                <p style="color:white;">@item.Price ₺</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Controls -->
+                <a class="carousel-control-prev" href="#destinationCarousel" role="button" data-slide="prev">
+                    <span class="la la-angle-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#destinationCarousel" role="button" data-slide="next">
+                    <span class="la la-angle-right" aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div class="card-body">
+                <a href="/Destination/Index" class="card-link">Tüm Turları Gör</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Gösterilecek tur bulunamadı.
+    </div>
+}

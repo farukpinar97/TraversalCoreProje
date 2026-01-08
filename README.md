@@ -19,11 +19,11 @@ hakkında ekleme , silme , güncelleme işlemi yapabilmektedir.Rotaların Excel 
 - **Localization**
 - **Booking API**
 ## :camera: Projenin Ekran Görüntüleri
-<img width="1350" height="4818" alt="01_Traversal Anasayfa" src="https://github.com/user-attachments/assets/6c52faba-4838-4b30-b419-e5db9599d7b6" />
+<img alt="01_Traversal Anasayfa" src="https://github.com/user-attachments/assets/6c52faba-4838-4b30-b419-e5db9599d7b6" />
 
 <img width="1919" height="952" alt="02_Traversal Rotalar" src="https://github.com/user-attachments/assets/072023b1-9e88-481b-bd2f-6baf427385e3" />
 
-<img width="1350" height="4263" alt="03_Traversal Rota Detay" src="https://github.com/user-attachments/assets/f2fb6ec1-66aa-45b3-a571-f5e5e77b1f61" />
+<img alt="03_Traversal Rota Detay" src="https://github.com/user-attachments/assets/f2fb6ec1-66aa-45b3-a571-f5e5e77b1f61" />
 
 <img width="1918" height="948" alt="04_Traversal Rehberler" src="https://github.com/user-attachments/assets/120175a5-4ce5-439e-b7d6-9fdd5479c496" />
 
